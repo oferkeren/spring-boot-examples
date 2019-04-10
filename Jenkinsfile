@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Deploy WAR with ansible') {
             steps {
-                sh 'ansible-playbook /warDeploy.yml'
+                sh 'sudo ansible-playbook /warDeploy.yml'
             }
         }
     }
