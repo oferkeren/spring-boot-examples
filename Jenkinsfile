@@ -12,7 +12,7 @@ pipeline {
         } 
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                sh 'mvn -f $WORKSPACE/spring-boot-package-war/pom.xml clean install'
             }
         }
         stage('Test') {
