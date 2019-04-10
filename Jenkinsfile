@@ -21,7 +21,11 @@ pipeline {
                 sh 'mvn test -f $WORKSPACE/spring-boot-package-war/pom.xml'
             }
         }
-       
+        stage('Deploy WAR with ansible') {
+            steps {
+                sh 'ansible-playbook /warDeploy.yml'
+            }
+        }
     }
     post {
      always {
