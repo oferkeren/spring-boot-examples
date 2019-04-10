@@ -12,7 +12,7 @@ pipeline {
         } 
         stage('Build Version ${BUILD_NUMBER}') {
             steps {
-                sh 'mvn -B -f $WORKSPACE/spring-boot-package-war/pom.xml clean package'
+                sh 'mvn -B -f $WORKSPACE/spring-boot-package-war/pom.xml -DskipTests clean package'
             }
         }
        
