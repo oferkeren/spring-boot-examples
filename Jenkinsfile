@@ -10,13 +10,13 @@ pipeline {
                 checkout scm
             }
         } 
-        stage('Build Version: ${BUILD_NUMBER}') {
+        stage('Build the code') {
             steps {
                 sh "sed -i '11s/Hello World xx/Hello World/' $WORKSPACE//spring-boot-package-war/src/main/java/com/neo/controller/HelloWorldController.java"
                 sh 'mvn -B -f $WORKSPACE/spring-boot-package-war/pom.xml -DskipTests clean package'
             }
         }
-        stage('Test Version: ${BUILD_NUMBER}') {
+        stage('Unit Tests') {
             steps {
                 sh 'mvn test -f $WORKSPACE/spring-boot-package-war/pom.xml'
             }
