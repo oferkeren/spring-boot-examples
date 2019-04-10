@@ -4,15 +4,15 @@ pipeline {
         maven "Maven"
     }
     stages {
-        stage('checkout') {
+        stage('Checkout Code') {
             steps {
                 deleteDir()
                 checkout scm
             }
         } 
-        stage('Build') {
+        stage('Build Version ${BUILD_NUMBER}') {
             steps {
-                sh 'mvn -B -f $WORKSPACE/spring-boot-package-war/pom.xml -DskipTests clean package'
+                sh 'mvn -B -f $WORKSPACE/spring-boot-package-war/pom.xml clean package'
             }
         }
        
