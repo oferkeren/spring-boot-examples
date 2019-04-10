@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Test Version: ${BUILD_NUMBER}') {
             steps {
-                sh 'mvn test'
+                sh 'mvn test -f $WORKSPACE/spring-boot-package-war/pom.xml'
             }
         }
        
